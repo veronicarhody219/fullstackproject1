@@ -1,0 +1,7 @@
+# Node.js
+frontend/node_modules
+frontend/.next
+
+# Python
+fastapitut/project/__pycache__/
+fastapitut/project/.env

@@ -4,9 +4,9 @@ from fastapi import FastAPI, HTTPException, Depends
 from sqlalchemy.orm import Session
 
 
-from project.database import Base, engine, SessionLocal
-from project.models import User
-from project.schemas import UserCreate, UserResponse
+from app.database import Base, engine, SessionLocal
+from app.models import User
+from app.schemas import UserCreate, UserResponse
 
 # khoi tao du lieu
 Base.metadata.create_all(bind=engine)
