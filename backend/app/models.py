@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field
 
 # Dinh nghia ORM voi SQLAlchemy
 from sqlalchemy import Column, Integer, String, Boolean
-from database import Base
+from app.database import Base
 
 
 class User(Base):
