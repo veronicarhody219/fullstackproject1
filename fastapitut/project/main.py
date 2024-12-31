@@ -1,8 +1,9 @@
 # chay ung dung fastAPI
+# from fastapi import FastAPI, HTTPException, Depends
 from fastapi import FastAPI, HTTPException, Depends
-
 from models import Product
 
+# from sqlalchemy.orm import Session
 from sqlalchemy.orm import Session
 from database import Base, engine, SessionLocal
 from models import User
@@ -46,22 +47,3 @@ def get_user(user_id: int, db: Session = Depends(get_db)):
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
     return user
-
-
-products = []
-
-
-@app.post("/products", response_model=Product)
-def add_product(product: Product):
-    for existing_product in products:
-        if existing_product["name"] == product.name:
-            raise HTTPException(status_code=400, detail=f"Product '{
-                                product.name}' already exits.")
-    product_data = product.model_dump()
-    products.append(product_data)
-    return product_data
-
-
-@app.get("/products", response_model=list[Product])
-def get_product():
-    return products
