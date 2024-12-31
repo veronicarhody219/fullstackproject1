@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 # Dinh nghia Pydantic cho du lieu vao/ra
 
 

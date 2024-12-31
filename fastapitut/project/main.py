@@ -1,13 +1,12 @@
 # chay ung dung fastAPI
-# from fastapi import FastAPI, HTTPException, Depends
 from fastapi import FastAPI, HTTPException, Depends
-from models import Product
 
-# from sqlalchemy.orm import Session
 from sqlalchemy.orm import Session
-from database import Base, engine, SessionLocal
-from models import User
-from schemas import UserCreate, UserResponse
+
+
+from project.database import Base, engine, SessionLocal
+from project.models import User
+from project.schemas import UserCreate, UserResponse
 
 # khoi tao du lieu
 Base.metadata.create_all(bind=engine)
