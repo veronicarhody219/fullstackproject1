@@ -5,3 +5,5 @@ frontend/.next
 # Python
 backend/app/__pycache__/
 backend/.env
+
+.DS_Store

@@ -19,3 +19,26 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded text-white transition duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-blue-500 hover:bg-blue-700 focus:ring-2 focus:ring-blue-300;
+  }
+
+  .btn-secondary {
+    @apply bg-emerald-500 hover:bg-emerald-700 focus:ring-2 focus:ring-emerald-300;
+  }
+
+  .btn-danger {
+    @apply bg-rose-500 hover:bg-rose-700 focus:ring-2 focus:ring-rose-300;
+  }
+  .btn-add {
+    @apply w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2;
+  }
+  .btn-edit {
+    @apply w-full py-2 px-4 bg-emerald-500 text-white font-semibold rounded-md hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2;
+  }
+}
