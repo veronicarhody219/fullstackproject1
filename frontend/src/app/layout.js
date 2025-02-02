@@ -23,17 +23,17 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-gray-50`}
       >
-        <header className="bg-blue-600 text-white p-4 shadow-lg">
+        <header className="bg-blue-600 text-white p-4 shadow-lg flex items-center justify-between">
           <h1 className="text-xl font-bold ">User management</h1>
+          <nav className="flex space-x-4">
+            <Link href="/" className="text-m font-medium hover:underline">
+              Home
+            </Link>
+            <Link href="/users" className="text-m font-medium hover:underline">
+              Users
+            </Link>
+          </nav>
         </header>
-        <nav>
-          <Link href="/" className="text-l font-bold text-right">
-            Home
-          </Link>
-          <Link href="/users" className="text-l font-bold text-right">
-            Users
-          </Link>
-        </nav>
         <main className="flex-grow">{children}</main>
         <footer className="bg-blue-800 text-white p-4 text-center">
           <span className="text-sm">&copy; Veronica | 2025</span>

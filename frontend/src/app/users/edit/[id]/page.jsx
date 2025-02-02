@@ -29,16 +29,24 @@ export default function EditUserPage() {
   }, [id]);
   async function handleSubmit(e) {
     e.preventDefault();
+    const userData = {
+      name: name,
+      email: email,
+    };
 
     try {
       const response = await fetch(`http://127.0.0.1:8000/users/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email }),
+        body: JSON.stringify(userData),
       });
       if (!response.ok) {
+        const errorData = await response.json();
+        console.log("Error response: ", errorData);
         throw new Error("Failed to update user");
       }
+      const result = await response.json();
+      console.log("User updated successfully: ", result);
 
       router.push("/users");
     } catch (error) {

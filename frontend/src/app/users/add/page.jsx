@@ -7,14 +7,21 @@ import { useRouter } from "next/navigation";
 export default function AddUserPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const router = useRouter();
 
   async function handleSubmit(e) {
     e.preventDefault();
+    const userData = {
+      name: name,
+      email: email,
+      password: password,
+      is_active: true, // Thêm trường này nếu cần
+    };
     await fetch(`http://127.0.0.1:8000/users`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email }),
+      body: JSON.stringify(userData),
     });
     router.push("/users");
   }
@@ -54,8 +61,23 @@ export default function AddUserPage() {
             className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
+        <div>
+          <label
+            htmlFor="password"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Password
+          </label>
+          <input
+            type="password"
+            value={password}
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          />
+        </div>
         <button type="submit" className="btn btn-add">
-          Add user
+          Register
         </button>
       </form>
     </div>
