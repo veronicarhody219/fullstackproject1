@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-
+from typing import Optional
 
 # Dinh nghia Pydantic cho du lieu vao/ra
 
@@ -11,7 +11,15 @@ class UserBase(BaseModel):
 
 
 class UserCreate(UserBase):
-    pass
+    name: str
+    email: str
+    password: str
+    is_active: Optional[bool] = True
+
+
+class UserUpdate(UserBase):
+    name: str
+    email: str
 
 
 class UserResponse(UserBase):
@@ -19,3 +27,8 @@ class UserResponse(UserBase):
 
     class Config:
         from_attributes = True
+
+
+class UserLogin(BaseModel):
+    email: str
+    password: str
